@@ -47,20 +47,20 @@ template() {
 ## Initializes a CA directory skeleton at PATH
 ##
 init_ca_home() {
-    HOME=$1
+    CA_HOME=$1
 
     # Ensure we're initializing an empty directory
-    if [ -d "${HOME}" ]; then
-	echo "${HOME} already exists, exiting"
+    if [ -d "${CA_HOME}" ]; then
+	echo "${CA_HOME} already exists, exiting"
 	exit 1
     fi
 
-    if ! mkdir -p "${HOME}"; then
-        echo "Unable to create ${HOME}, exiting"
+    if ! mkdir -p "${CA_HOME}"; then
+        echo "Unable to create ${CA_HOME}, exiting"
 	exit 1
     fi
 
-    pushd ${HOME} > /dev/null
+    pushd ${CA_HOME} > /dev/null
 
     # Create top-level CA structure
     mkdir -p ca
